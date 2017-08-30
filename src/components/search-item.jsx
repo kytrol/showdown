@@ -9,7 +9,7 @@ const SearchItem = ({ search }) => (
       {search.results.map(({ show }) => (
         <li>
           <h5>{show.name}</h5>
-          <img src={show.image.medium}/>
+          {show.image && <img src={show.image.medium} />}
           <div dangerouslySetInnerHTML={{ __html: show.summary }} />
         </li>
       ))}

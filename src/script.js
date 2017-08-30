@@ -1,15 +1,16 @@
 'use strict';
 
 import { h, render } from 'preact';
-import App from './components/App.jsx';
+import App from './components/app.jsx';
 
-document.addEventListener('DOMContentLoaded', () => {
-  render(<App />, document.getElementById('root'));
-});
+let root;
+function init() {
+  const App = require('./components/app.jsx').default;
+  root = render(<App />, document.body, root);
+}
+
+init();
 
 if (module.hot) {
-  console.log('oh man it\'s hot');
-  module.hot.accept();
-} else {
-  console.log('yo it\'s not hot');
+  module.hot.accept('./components/app.jsx', () => requestAnimationFrame(init));
 }
