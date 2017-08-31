@@ -1,0 +1,9 @@
+{
+  "name": "Showdown",
+  "short_name": "Showdown",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background-color": "#90a4ae",
+  "theme-color": "#90a4ae"
+}
