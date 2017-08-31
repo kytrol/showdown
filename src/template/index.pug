@@ -1,0 +1,19 @@
+doctype html
+html(lang='en')
+  head
+    title Showdown
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='build/css/bundle.css')
+  body
+    main#root
+    script.
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          .then(reg => console.log('oh ya service worker registered'))
+          .catch(err => console.error(err));
+
+        navigator.serviceWorker.ready
+          .then(reg => console.log('service worker ready boi'))
+          .catch(err => console.error(err));
+      }

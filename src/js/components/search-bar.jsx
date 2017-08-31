@@ -16,9 +16,7 @@ export default class SearchBar extends Component {
     const url = `http://api.tvmaze.com/search/shows?q=${text}`;
     fetch(url)
       .then(res => res.json())
-      .then(results => {
-        addSearch({ search: text, results });
-      })
+      .then(results => addSearch({ search: text, results }))
       .catch(e => console.error(e));
   }
 

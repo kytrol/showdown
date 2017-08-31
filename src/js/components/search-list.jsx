@@ -1,6 +1,6 @@
 'use strict';
 
-import { h, Component } from 'preact';
+import { h } from 'preact';
 import SearchItem from './search-item.jsx';
 
 const SearchList = ({ searches }) => (

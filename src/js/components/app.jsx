@@ -15,7 +15,7 @@ export default class App extends Component {
   }
 
   addSearch({ search, results }) {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       const { searches } = prevState;
       searches.push({ search, results });
       return { searches };

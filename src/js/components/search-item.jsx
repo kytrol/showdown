@@ -1,6 +1,6 @@
 'use strict';
 
-import { h, Component } from 'preact';
+import { h } from 'preact';
 
 const SearchItem = ({ search }) => (
   <div>
