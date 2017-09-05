@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import Header from '../containers/header.jsx';
+import Landing from '../containers/landing.jsx';
 
 export default class App extends Component {
   constructor() {
@@ -23,6 +24,7 @@ export default class App extends Component {
     return (
       <main>
         <Header />
+        <Landing />
       </main>
     );
   }

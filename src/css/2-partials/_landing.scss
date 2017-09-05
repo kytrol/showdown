@@ -1,0 +1,66 @@
+.landing {
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex: 0 1 33%;
+    padding: 1.6rem;
+    text-align: left;
+    transition: color 150ms $swift, background-color 150ms $swift;
+
+    &:nth-child(3n - 2) {
+      @include click-effect($accent-light);
+
+      background-color: $accent-light;
+    }
+
+    &:nth-child(3n - 1) {
+      @include click-effect($accent);
+
+      background-color: $accent;
+    }
+
+    &:nth-child(3n) {
+      @include click-effect($accent-dark);
+
+      background-color: $accent-dark;
+    }
+
+    &:hover {
+      color: $amber;
+
+      & > h3 {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  h3 {
+    @include font-transition();
+
+    font-size: 2.4rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    user-select: none;
+  }
+}
+
+@media (min-width: 350px) {
+  .landing h3 {
+    font-size: 2.8rem;
+  }
+
+  .landing > div:hover > h3 {
+    font-size: 2.9rem;
+  }
+}
+
+@media (min-width: 880px) {
+  .landing > div {
+    cursor: pointer;
+  }
+}

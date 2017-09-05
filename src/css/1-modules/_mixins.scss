@@ -1,0 +1,9 @@
+@mixin click-effect($color) {
+  &:active {
+    background-color: darken($color, 5%);
+  }
+}
+
+@mixin font-transition() {
+  transition: font-size 250ms $swift-bounce;
+}

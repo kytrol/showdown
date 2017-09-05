@@ -1,29 +1,22 @@
 // Header Styles
-header {
-  box-sizing: border-box;
-  border-left: .8rem solid $amber;
-  border-right: .8rem solid $amber;
+header > h1 {
+  @include font-transition();
 
-  & > h1 {
-    color: $amber;
-    font-size: 4rem;
-    font-weight: $light;
-    letter-spacing: .8rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 1.2rem;
-    padding-bottom: 1.2rem;
-    text-transform: uppercase;
-  }
+  color: $amber;
+  font-size: 4rem;
+  font-weight: $light;
+  letter-spacing: .8rem;
+  height: 7vh;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  text-transform: uppercase;
+  user-select: none;
 }
 
 @media (min-width: 420px) {
-  header {
-    border-left: 1rem solid $amber;
-    border-right: 1rem solid $amber;
-
-    & > h1 {
-      font-size: 5rem;
-    }
+  header > h1 {
+    font-size: 5rem;
   }
 }

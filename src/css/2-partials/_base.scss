@@ -1,7 +1,7 @@
 @import '../0-vendor/normalize';
 @import '../0-vendor/overpass';
 
-@import '../1-modules/_variables';
+@import '../1-modules/_all';
 
 html {
   font-size: 62.5%;
@@ -13,6 +13,11 @@ body {
   font-size: 2rem;
   font-family: 'Overpass', sans-serif;
   text-align: center;
+}
+
+main {
+  height: 100vh;
+  overflow: hidden;
 }
 
 button,
