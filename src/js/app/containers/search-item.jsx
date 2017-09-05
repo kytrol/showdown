@@ -1,5 +1,3 @@
-'use strict';
-
 import { h } from 'preact';
 
 const SearchItem = ({ search }) => (

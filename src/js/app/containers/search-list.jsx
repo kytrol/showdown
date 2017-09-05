@@ -1,5 +1,3 @@
-'use strict';
-
 import { h } from 'preact';
 import SearchItem from './search-item.jsx';
 

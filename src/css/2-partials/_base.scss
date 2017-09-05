@@ -1,3 +1,22 @@
 @import '../0-vendor/normalize';
+@import '../0-vendor/overpass';
 
 @import '../1-modules/_variables';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $maroon;
+  color: $grey-300;
+  font-size: 2rem;
+  font-family: 'Overpass', sans-serif;
+  text-align: center;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}

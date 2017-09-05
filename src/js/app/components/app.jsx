@@ -1,8 +1,5 @@
-'use strict';
-
 import { h, Component } from 'preact';
-import SearchBar from './search-bar.jsx';
-import SearchList from './search-list.jsx';
+import Header from '../containers/header.jsx';
 
 export default class App extends Component {
   constructor() {
@@ -22,11 +19,10 @@ export default class App extends Component {
     });
   }
 
-  render(props, state) {
+  render() {
     return (
       <div>
-        <SearchBar addSearch={this.addSearch} />
-        <SearchList searches={state.searches} />
+        <Header />
       </div>
     );
   }

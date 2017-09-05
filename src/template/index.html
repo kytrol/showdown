@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Showdown</title>
-    <style>
-      body {
-        background-color: #90A4AE;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root">
-    </div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bundle.css">
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js', { scope: '/' })
@@ -22,6 +16,9 @@
           .catch(err => console.error(err));
       }
     </script>
-    <script src="build/bundle.js"></script>
+  </head>
+  <body>
+    <main class="center" id="root"></main>
+    <script src="js/bundle.js"></script>
   </body>
 </html>

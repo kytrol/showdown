@@ -2,15 +2,14 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const nodeEnv = process.env.NODE_ENV;
 const isProduction = nodeEnv === 'production';
 
 const srcPath = path.join(__dirname, 'src');
-const pugPath = path.join(srcPath, 'template');
 const buildPath = path.join(__dirname, 'build');
 
 const baseOpts = {
@@ -35,6 +34,7 @@ const rules = [{
 {
   test: /\.jsx?/,
   loader: 'babel-loader',
+  exclude: /node_modules/,
   options: {
     presets: [
       ['env', {
@@ -63,6 +63,13 @@ const rules = [{
   }
 },
 {
+  test: /\.eot$/,
+  use: {
+    loader: 'file-loader',
+    options: fontOpts('application/vnd.ms-fontobject'),
+  }
+},
+{
   test: /\.svg$/,
   use: [{
     loader: 'file-loader',
@@ -71,20 +78,9 @@ const rules = [{
   {
     loader: 'img-loader'
   }]
-},
-{
-  test: /\.pug$/,
-  use: 'pug-loader?pretty'
 }];
 
-const plugins = [
-  new HtmlWebpackPlugin({
-    template: path.join(pugPath, 'index.pug'),
-    filename: 'index.html',
-    minify: false,
-    inject: false
-  })
-];
+const plugins = [];
 
 if (isProduction) {
   rules.push({
@@ -124,7 +120,10 @@ if (isProduction) {
     }),
     new ExtractTextPlugin({
       filename: path.join('css', 'bundle.css')
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: path.join(srcPath, 'template')
+    }])
   );
 } else {
   rules.push({
@@ -147,6 +146,7 @@ module.exports = {
   entry: path.join(srcPath, 'js', 'script.js'),
   devServer: {
     compress: true,
+    contentBase: buildPath,
     hot: true,
     inline: true,
     port: 3001
@@ -155,7 +155,7 @@ module.exports = {
   output: {
     filename: path.join('js', 'bundle.js'),
     path: buildPath,
-    publicPath: 'build/'
+    publicPath: '/'
   },
   module: {
     rules
