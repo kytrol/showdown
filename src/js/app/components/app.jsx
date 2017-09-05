@@ -1,6 +1,10 @@
 import { h, Component } from 'preact';
-import Header from '../containers/header.jsx';
-import Landing from '../containers/landing.jsx';
+import Router from 'preact-router';
+import Home from '../containers/home.jsx';
+import ShowSearch from '../containers/show-search.jsx';
+import PersonSearch from '../containers/person-search.jsx';
+import Schedule from '../containers/schedule.jsx';
+import NotFound from '../containers/not-found.jsx';
 
 export default class App extends Component {
   constructor() {
@@ -22,10 +26,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <main>
-        <Header />
-        <Landing />
-      </main>
+      <Router>
+        <Home path='/' />
+        <ShowSearch path='/show' />
+        <PersonSearch path='/person' />
+        <Schedule path='/schedule' />
+        <NotFound default />
+      </Router>
     );
   }
 }

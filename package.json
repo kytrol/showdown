@@ -19,7 +19,8 @@
   "homepage": "https://github.com/kytrol/showdown#readme",
   "dependencies": {
     "linkstate": "^1.0.1",
-    "preact": "^8.2.5"
+    "preact": "^8.2.5",
+    "preact-router": "^2.5.7"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.3",

@@ -4756,6 +4756,10 @@ postcss@^6.0.1, postcss@^6.0.10, postcss@^6.0.2:
     source-map "^0.5.7"
     supports-color "^4.2.1"
 
+preact-router@^2.5.7:
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/preact-router/-/preact-router-2.5.7.tgz#571fa585472fb2b9918e8610d8ef8526cf2ee263"
+
 preact@^8.2.5:
   version "8.2.5"
   resolved "https://registry.yarnpkg.com/preact/-/preact-8.2.5.tgz#cbfa3962a8012768159f6d01d46f9c1eb3213c0a"

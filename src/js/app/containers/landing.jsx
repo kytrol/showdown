@@ -4,7 +4,7 @@ import LandingSection from '../components/landing-section.jsx';
 const sections = [
   'Show Search',
   'Person Search',
-  'Full Schedule'
+  'Schedule'
 ];
 
 const Landing = () => (

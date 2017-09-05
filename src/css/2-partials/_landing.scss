@@ -59,6 +59,27 @@
   }
 }
 
+@media (min-width: 350px) {
+  .landing h3 {
+    font-size: 2.8rem;
+  }
+
+  .landing > div:hover > h3 {
+    font-size: 2.9rem;
+  }
+}
+
+@media (min-width: 660px) {
+  .landing h3 {
+    font-size: 3rem;
+  }
+
+  .landing > div:hover > h3 {
+    font-size: 3.1rem;
+  }
+}
+
+
 @media (min-width: 880px) {
   .landing > div {
     cursor: pointer;
