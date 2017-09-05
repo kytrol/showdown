@@ -1,6 +1,6 @@
 {
   "name": "showdown",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "TV show web app to learn Preact",
   "scripts": {
     "build": "set NODE_ENV=production&& webpack",
