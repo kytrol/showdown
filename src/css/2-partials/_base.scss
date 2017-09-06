@@ -10,18 +10,12 @@ html {
 body {
   background-color: $maroon;
   color: $grey-300;
-  font-size: 2rem;
   font-family: 'Overpass', sans-serif;
+  font-size: 2rem;
   text-align: center;
 }
 
 main {
   height: 100vh;
   overflow: hidden;
-}
-
-button,
-input,
-textarea {
-  font-family: inherit;
 }

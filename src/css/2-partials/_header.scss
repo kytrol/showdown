@@ -3,10 +3,11 @@ header > h1 {
   @include font-transition();
 
   color: $amber;
-  font-size: 4rem;
+  font-size: 10vw;
   font-weight: $light;
-  letter-spacing: .8rem;
   height: 7vh;
+  letter-spacing: .8rem;
+  line-height: 7vh;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 1.2rem;
@@ -17,6 +18,12 @@ header > h1 {
 
 @media (min-width: 420px) {
   header > h1 {
-    font-size: 5rem;
+    font-size: 5vw;
+  }
+}
+
+@media (min-width: 710px) {
+  header > h1 {
+    font-size: 4vw;
   }
 }
