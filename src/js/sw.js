@@ -1,9 +1,9 @@
 'use strict';
 
 const CACHE_NAME = 'showdown-v0';
-const urlsToCache = ['/', '/index.html', '/build/bundle.js'];
+const urlsToCache = ['/'];
 
-self.addEventListener('install', evt => {
+self.addEventListener('install', (evt) => {
   evt.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
@@ -12,13 +12,13 @@ self.addEventListener('install', evt => {
 });
 
 const BASE_URL = 'http://api.tvmaze.com/search/shows?q=';
-self.addEventListener('fetch', evt => {
+self.addEventListener('fetch', (evt) => {
   if (evt.request.url.indexOf(BASE_URL) > -1) {
     evt.respondWith(
       caches.open(CACHE_NAME)
         .then(cache => (
           fetch(evt.request)
-            .then(res => {
+            .then((res) => {
               cache.put(evt.request.url, res.clone());
               return res;
             })
@@ -28,14 +28,14 @@ self.addEventListener('fetch', evt => {
   } else {
     evt.respondWith(
       caches.match(evt.request)
-      .then(res => {
-        if (res) {
-          return res;
-        }
+        .then((res) => {
+          if (res) {
+            return res;
+          }
 
-        return fetch(evt.request);
-      })
-      .catch(err => console.error(err))
+          return fetch(evt.request);
+        })
+        .catch(err => console.error(err))
     );
   }
 });

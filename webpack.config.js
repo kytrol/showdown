@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').config();
+
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -10,7 +12,8 @@ const nodeEnv = process.env.NODE_ENV;
 const isProduction = nodeEnv === 'production';
 
 const srcPath = path.join(__dirname, 'src');
-const buildPath = path.join(__dirname, 'build');
+const jsPath = path.join(srcPath, 'js');
+const buildPath = path.join(__dirname, 'public');
 
 const baseOpts = {
   context: srcPath,
@@ -18,8 +21,9 @@ const baseOpts = {
   publicPath: '../'
 };
 
-const fontOpts = (mimetype) => Object.assign({}, baseOpts, { mimetype });
+const fontOpts = mimetype => Object.assign({}, baseOpts, { mimetype });
 
+const entry = [];
 const rules = [{
   test: /\.jsx?$/,
   exclude: /node_modules/,
@@ -34,19 +38,7 @@ const rules = [{
 {
   test: /\.jsx?/,
   loader: 'babel-loader',
-  exclude: /node_modules/,
-  options: {
-    presets: [
-      ['env', {
-        targets: {
-          browsers: ['last 2 versions']
-        }
-      }]
-    ],
-    plugins: [
-      ['transform-react-jsx', { pragma: 'h' }]
-    ]
-  }
+  exclude: /node_modules/
 },
 {
   test: /\.woff2?$/,
@@ -80,7 +72,11 @@ const rules = [{
   }]
 }];
 
-const plugins = [];
+const plugins = [
+  new CopyWebpackPlugin([{
+    from: path.join(jsPath, 'sw.js')
+  }])
+];
 
 if (isProduction) {
   rules.push({
@@ -120,19 +116,18 @@ if (isProduction) {
     }),
     new ExtractTextPlugin({
       filename: path.join('css', 'bundle.css')
-    }),
-    new CopyWebpackPlugin([{
-      from: path.join(srcPath, 'template')
-    }])
+    })
   );
 } else {
+  entry.push('webpack-hot-middleware/client?quiet=true');
+
   rules.push({
     test: /\.scss$/,
     exclude: /node_modules/,
     use: [
-      { loader: 'style-loader?sourceMap'},
-      { loader: 'css-loader?sourceMap'},
-      { loader: 'sass-loader?sourceMap'}
+      { loader: 'style-loader?sourceMap' },
+      { loader: 'css-loader?sourceMap' },
+      { loader: 'sass-loader?sourceMap' }
     ]
   });
 
@@ -142,15 +137,10 @@ if (isProduction) {
   );
 }
 
+entry.push(path.join(jsPath, 'script.js'));
+
 module.exports = {
-  entry: path.join(srcPath, 'js', 'script.js'),
-  devServer: {
-    compress: true,
-    contentBase: buildPath,
-    hot: true,
-    inline: true,
-    port: 3001
-  },
+  entry,
   devtool: isProduction ? false : 'cheap-module-eval-source-map',
   output: {
     filename: path.join('js', 'bundle.js'),
