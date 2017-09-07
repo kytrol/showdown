@@ -2,6 +2,7 @@
 
 import { h, render } from 'preact';
 import '../css/style.scss';
+import '../assets/img/search.svg';
 
 let root;
 function init() {

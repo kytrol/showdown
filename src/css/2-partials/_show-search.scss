@@ -1,0 +1,66 @@
+// Show Search Page Styles
+.search {
+  background-color: $accent-light;
+  padding: 1.2rem;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: width 200ms $swift;
+  width: 90vw;
+
+  & > input,
+  & > img {
+    background-color: $maroon;
+    border-radius: .2rem;
+  }
+
+  & > input {
+    border: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-sizing: border-box;
+    color: $amber;
+    width: 100%;
+    height: 4rem;
+    padding: .8rem;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &::placeholder {
+      color: $amber;
+    }
+  }
+
+  & > img {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-sizing: border-box;
+    height: 4rem;
+    width: 4rem;
+    padding: .4rem;
+  }
+}
+
+@media (min-width: 410px) {
+  .search-box {
+    width: 70vw;
+  }
+}
+
+@media (min-width: 590px) {
+  .search-box {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 880px) {
+  .search-box {
+    width: 40vw;
+  }
+}
