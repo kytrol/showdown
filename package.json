@@ -1,12 +1,12 @@
 {
   "name": "showdown",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "description": "TV show web app to learn Preact",
   "scripts": {
     "start": "node app.js",
     "build": "webpack",
     "dev": "nodemon app.js",
-    "lint": "eslint ."
+    "lint": "eslint . --ignore-pattern public/"
   },
   "repository": {
     "type": "git",
