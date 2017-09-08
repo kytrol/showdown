@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import Search from '../components/search.jsx';
 import PersonList from '../components/person-list.jsx';
 import debounce from 'debounce';
+import { get } from '../util/fetch';
 
 export default class PersonSearch extends Component {
   constructor(props) {
@@ -31,9 +32,7 @@ export default class PersonSearch extends Component {
   }
 
   fetchPeople(searchTerm) {
-    const url = `http://api.tvmaze.com/search/people?q=${searchTerm}`;
-    fetch(url)
-      .then(res => res.json())
+    get('people', searchTerm)
       .then(results => this.addSearch({ searchTerm, results }))
       .catch(e => console.error(`Failed to fetch people :- ${e}`));
   }

@@ -13,16 +13,17 @@
 
   & > h5 {
     @include ellipsis-overflow();
+
     display: inline-block;
     margin: 0;
   }
 }
 
 .genres {
+  box-sizing: border-box;
   display: flex;
   justify-content: space-around;
   height: 2.8rem;
-  box-sizing: border-box;
   padding-top: 1.2rem;
 
   & > li {

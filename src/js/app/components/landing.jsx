@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import LandingSection from '../components/landing-section.jsx';
+import LandingSection from './landing-section.jsx';
 
 const sections = [
   'Show Search',

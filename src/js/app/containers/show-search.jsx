@@ -1,7 +1,8 @@
 import { h, Component } from 'preact';
 import Search from '../components/search.jsx';
-import ShowList from './show-list.jsx';
+import ShowList from '../components/show-list.jsx';
 import debounce from 'debounce';
+import { get } from '../util/fetch';
 
 export default class ShowSearch extends Component {
   constructor(props) {
@@ -33,10 +34,9 @@ export default class ShowSearch extends Component {
   }
 
   fetchShows(searchTerm) {
-    const url = `http://api.tvmaze.com/search/shows?q=${searchTerm}`;
-    fetch(url)
-      .then(res => res.json())
-      .then(results => this.addSearch({ searchTerm, results }))
+    const resource = 'shows';
+    get(resource, searchTerm)
+      .then(results => this.addSearch({ resource, searchTerm, results }))
       .catch(e => console.error(`Failed to fetch shows :- ${e}`));
   }
 

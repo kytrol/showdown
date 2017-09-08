@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import Show from '../components/show.jsx';
+import Show from './show.jsx';
 
 const ShowList = ({ shows }) => (
   <ul class='show-list'>

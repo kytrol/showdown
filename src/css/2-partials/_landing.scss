@@ -7,7 +7,7 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    flex: 0 1 33.33%;
+    flex: 0 1 32.33%;
     padding: 1.6rem;
     text-align: left;
     transition: color 150ms $swift, background-color 150ms $swift;
@@ -69,19 +69,18 @@
   }
 }
 
-@media (min-width: 660px) {
-  .landing h3 {
-    font-size: 3rem;
-  }
-
-  .landing > div:hover > h3 {
-    font-size: 3.1rem;
-  }
-}
-
-
 @media (min-width: 880px) {
-  .landing > div {
-    cursor: pointer;
+  .landing {
+    & > div {
+      cursor: pointer;
+    }
+
+    h3 {
+      font-size: 3rem;
+    }
+
+    & > div:hover > h3 {
+      font-size: 3.1rem;
+    }
   }
 }

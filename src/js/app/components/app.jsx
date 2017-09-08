@@ -1,10 +1,10 @@
 import { h } from 'preact';
 import Router from 'preact-router';
-import Home from '../containers/home.jsx';
+import Home from './home.jsx';
 import ShowSearch from '../containers/show-search.jsx';
 import PersonSearch from '../containers/person-search.jsx';
 import Schedule from '../containers/schedule.jsx';
-import NotFound from '../containers/not-found.jsx';
+import NotFound from './not-found.jsx';
 
 const App = () => (
   <Router>
