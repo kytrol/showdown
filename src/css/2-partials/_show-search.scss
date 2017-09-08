@@ -1,106 +1,7 @@
 // Show Search Page Styles
-.search {
-  background-color: $accent-light;
-  padding: 1.2rem;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  transition: width 200ms $swift;
-  width: 90vw;
-
-  & > input,
-  & > img {
-    background-color: $maroon;
-    border-radius: .2rem;
-  }
-
-  & > input {
-    border: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    box-sizing: border-box;
-    color: $amber;
-    width: 100%;
-    height: 4rem;
-    padding: .8rem;
-
-    &:focus {
-      outline: 0;
-    }
-
-    &::placeholder {
-      color: $amber;
-    }
-  }
-
-  & > img {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    box-sizing: border-box;
-    height: 4rem;
-    width: 4rem;
-    padding: .4rem;
-  }
-}
-
 .show-list {
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
-}
-
-.show {
-  background-color: $accent-dark;
-  border-radius: .2rem;
-  box-shadow: $shadow;
-  box-sizing: border-box;
-  display: inline-block;
-  margin: 1.2rem;
-  padding: 1.2rem;
-  position: relative;
-  vertical-align: top;
-  width: 26rem;
-
-
-  &::before,
-  &::after {
-    background-color: $amber;
-    content: '';
-    display: block;
-    height: .2rem;
-    position: absolute;
-    transition: width 200ms $swift;
-    width: 0;
-    z-index: 1;
-  }
-
-  &::before {
-    top: 0;
-    left: 0;
-  }
-
-  &::after {
-    bottom: -.1rem;
-    right: 0;
-  }
-
-  &:hover {
-    &::before,
-    &::after {
-      width: 100%;
-    }
-  }
-
-  & > h3 {
-    @include ellipsis-overflow();
-
-    color: $amber;
-    margin-top: .4rem;
-    margin-bottom: 1.2rem;
-  }
 }
 
 .network {
@@ -115,13 +16,6 @@
     display: inline-block;
     margin: 0;
   }
-}
-
-.show-img {
-  background-color: $maroon;
-  width: 21rem;
-  height: 29.5rem;
-  margin: 0 auto;
 }
 
 .genres {

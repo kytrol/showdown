@@ -1,0 +1,13 @@
+.person {
+  background-color: $accent-dark;
+  display: inline-block;
+  padding-bottom: 2rem;
+
+  & > h3 {
+    margin-top: 0;
+  }
+
+  &:after {
+    height: .25rem;
+  }
+}

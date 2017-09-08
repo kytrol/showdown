@@ -3,7 +3,7 @@ import { h } from 'preact';
 const Show = ({ showInfo }) => {
   const { show } = showInfo;
   return (
-    <li class='show'>
+    <li class='jar show'>
       <div class='network'>
         {show.network && <h5>{show.network.country.code}</h5>}
         {show.network && <h5>{show.network.name}</h5>}
