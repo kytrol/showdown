@@ -14,11 +14,9 @@ export default class Search extends Component {
 
   componentDidMount() {
     this.searchField.focus();
-    console.log('staaate', this.state);
   }
 
   fetchShows(evt) {
-    console.log(evt.target.value);
     const searchTerm = evt.target.value;
     const url = `http://api.tvmaze.com/search/shows?q=${searchTerm}`;
     fetch(url)

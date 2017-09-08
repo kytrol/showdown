@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import Show from '../components/show.jsx';
 
-const ShowList = (shows) => (
+const ShowList = ({ shows }) => (
   <ul class='show-list'>
-    {shows.map(show => <Show show={show} />)}
+    {shows.map(show => <Show showInfo={show} />)}
   </ul>
 );
 

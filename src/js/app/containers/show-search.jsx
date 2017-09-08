@@ -1,34 +1,39 @@
 import { h, Component } from 'preact';
 import Search from '../components/search.jsx';
+import ShowList from './show-list.jsx';
 
 export default class ShowSearch extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      searches: []
+      searchTerm: '',
+      searches: {}
     };
 
     this.addSearch = this.addSearch.bind(this);
   }
 
-  addSearch(result) {
-    this.setState((prevState) => {
-      const { searches } = prevState;
-      searches.push(result);
-      console.log('searches', searches);
-      return { searches };
-    });
+  addSearch({ searchTerm, results }) {
+    this.setState(prevState => ({
+      ...prevState,
+      searchTerm,
+      searches: {
+        ...prevState.searches,
+        [searchTerm]: results
+      }
+    }));
   }
 
   render() {
-    console.log('render:', this.state);
+    const { searchTerm, searches } = this.state;
     return (
       <section class='show-search'>
         <Search
           placeholder='Search for a show...'
           addSearch={this.addSearch}
         />
+        {searches[searchTerm] && <ShowList shows={searches[searchTerm]} />}
       </section>
     );
   }
