@@ -7,3 +7,9 @@
 @mixin font-transition() {
   transition: font-size 150ms $swift-bounce;
 }
+
+@mixin ellipsis-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
