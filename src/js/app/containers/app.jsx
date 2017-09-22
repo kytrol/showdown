@@ -1,11 +1,11 @@
 import { h, Component } from 'preact';
 import debounce from 'debounce';
 import Router from 'preact-router';
-import Home from './home.jsx';
-import ShowSearch from '../containers/show-search.jsx';
-import PersonSearch from '../containers/person-search.jsx';
-import Schedule from '../containers/schedule.jsx';
-import NotFound from './not-found.jsx';
+import Home from '../components/home.jsx';
+import ShowSearch from './show-search.jsx';
+import PersonSearch from './person-search.jsx';
+import Schedule from './schedule.jsx';
+import NotFound from '../components/not-found.jsx';
 
 export default class App extends Component {
   constructor(props) {

@@ -6,12 +6,12 @@ import '../assets/img/search.svg';
 
 let root;
 function init() {
-  const App = require('./app/components/app.jsx').default;
+  const App = require('./app/containers/app.jsx').default;
   root = render(<App />, document.body, root);
 }
 
 init();
 
 if (module.hot) {
-  module.hot.accept('./app/components/app.jsx', () => requestAnimationFrame(init));
+  module.hot.accept('./app/containers/app.jsx', () => requestAnimationFrame(init));
 }

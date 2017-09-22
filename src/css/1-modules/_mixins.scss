@@ -13,3 +13,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@mixin no-highlight() {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}

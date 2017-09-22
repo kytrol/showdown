@@ -49,6 +49,8 @@
 }
 
 .jar {
+  @include no-highlight();
+
   background-color: $accent-dark;
   border-radius: .2rem;
   box-shadow: $shadow;
@@ -93,7 +95,6 @@
     @include ellipsis-overflow();
 
     color: $amber;
-    margin-top: .4rem;
     margin-bottom: 1.2rem;
   }
 }

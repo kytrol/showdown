@@ -4,10 +4,12 @@
   height: 93vh;
 
   & > div {
+    @include no-highlight();
+
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    flex: 0 1 32.33%;
+    flex: 0 1 33.33%;
     padding: 1.6rem;
     text-align: left;
     transition: color 150ms $swift, background-color 150ms $swift;
@@ -34,7 +36,7 @@
       color: $amber;
 
       & > h3 {
-        font-size: 2.5rem;
+        font-size: 6.2vw;
       }
     }
   }
@@ -42,30 +44,34 @@
   h3 {
     @include font-transition();
 
-    font-size: 2.4rem;
+    font-size: 6vw;
     letter-spacing: .1rem;
     text-transform: uppercase;
     user-select: none;
   }
 }
 
-@media (min-width: 350px) {
-  .landing h3 {
-    font-size: 2.8rem;
-  }
+@media (min-width: 420px) {
+  .landing {
+    h3 {
+      font-size: 4vw;
+    }
 
-  .landing > div:hover > h3 {
-    font-size: 2.9rem;
+    & > div:hover > h3 {
+      font-size: 4.2vw;
+    }
   }
 }
 
-@media (min-width: 350px) {
-  .landing h3 {
-    font-size: 2.8rem;
-  }
+@media (min-width: 710px) {
+  .landing {
+    h3 {
+      font-size: 3vmax;
+    }
 
-  .landing > div:hover > h3 {
-    font-size: 2.9rem;
+    & > div:hover > h3 {
+      font-size: 3.2vmax;
+    }
   }
 }
 

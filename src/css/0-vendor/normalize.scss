@@ -445,3 +445,28 @@ template {
 [hidden] {
   display: none;
 }
+
+/* Custom Styles
+   ========================================================================== */
+
+/**
+ * Set font weight of headings, except h1, to normal.
+ */
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+/**
+ * Remove bullet points and left padding from uls.
+ */
+ 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
