@@ -2,9 +2,9 @@ doctype html
 html(lang='en')
   head
     title Showdown
-    meta(charset='utf-8')
+    meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    link(rel='stylesheet' href='css/bundle.css')
+    link(rel='stylesheet' href='/css/bundle.css')
     script.
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js', { scope: '/' })
@@ -16,4 +16,4 @@ html(lang='en')
           .catch(err => console.error(`nope i need more time to get ready man ${err}`));
       }
   body!= html
-    script(src='js/bundle.js')
+    script(src='/js/bundle.js')

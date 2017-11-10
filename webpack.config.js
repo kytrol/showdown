@@ -23,7 +23,7 @@ const baseOpts = {
 
 const fontOpts = mimetype => Object.assign({}, baseOpts, { mimetype });
 
-const entry = [];
+const entry = ['babel-polyfill'];
 const rules = [{
   test: /\.jsx?$/,
   exclude: /node_modules/,

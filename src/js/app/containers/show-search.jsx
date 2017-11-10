@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import Search from '../components/search.jsx';
 import ShowList from '../components/show-list.jsx';
-import { get } from '../util/fetch';
+import { search } from '../util/fetch';
 
 export default class ShowSearch extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class ShowSearch extends Component {
 
   fetchShows(searchTerm) {
     const { addSearch, resource } = this.props;
-    get(resource, searchTerm)
+    search(resource, searchTerm)
       .then(results => addSearch({ resource, searchTerm, results }))
       .catch(e => console.error(`Failed to fetch shows :- ${e}`));
   }

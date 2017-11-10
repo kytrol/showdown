@@ -1,3 +1,11 @@
+// Common Values
+$xxs: .2rem;
+$xs: .4rem;
+$s: .8rem;
+$m: 1.6rem;
+$l: 2.4rem;
+$xl: 3.2rem;
+
 // Color Palette
 $maroon: #880e4f;
 $amber: #ffc107;
@@ -10,7 +18,7 @@ $grey-300: #e0e0e0;
 $grey-200: #eee;
 $grey-100: #f5f5f5;
 
-$shadow: 0 .2rem .5rem 0 rgba(0, 0, 0, 0.16), 0 .2rem .1rem 0 rgba(0, 0, 0, 0.12);
+$shadow: 0 $xxs .5rem 0 rgba(0, 0, 0, 0.16), 0 $xxs .1rem 0 rgba(0, 0, 0, 0.12);
 
 // Font Weight
 $light: 100;

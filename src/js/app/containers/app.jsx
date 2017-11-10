@@ -6,6 +6,7 @@ import ShowSearch from './show-search.jsx';
 import PersonSearch from './person-search.jsx';
 import Schedule from './schedule.jsx';
 import NotFound from '../components/not-found.jsx';
+import ShowDetail from '../components/show-detail.jsx';
 
 export default class App extends Component {
   constructor(props) {
@@ -53,6 +54,8 @@ export default class App extends Component {
   }
 
   render() {
+    const { shows, people } = this.state;
+
     return (
       <Router>
         <Home path='/' />
@@ -60,17 +63,21 @@ export default class App extends Component {
           path='/show'
           addSearch={this.addSearch}
           resource='shows'
-          showInfo={this.state.shows}
+          showInfo={shows}
           onSearchInput={this.onSearchInput}
         />
         <PersonSearch
           path='/person'
           addSearch={this.addSearch}
           resource='people'
-          peopleInfo={this.state.people}
+          peopleInfo={people}
           onSearchInput={this.onSearchInput}
         />
         <Schedule path='/schedule' />
+        <ShowDetail
+          path='/show/:id'
+          shows={shows.searches[shows.searchTerm]}
+        />
         <NotFound default />
       </Router>
     );
