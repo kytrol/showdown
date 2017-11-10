@@ -6,7 +6,7 @@ import ShowSearch from './show-search.jsx';
 import PersonSearch from './person-search.jsx';
 import Schedule from './schedule.jsx';
 import NotFound from '../components/not-found.jsx';
-import ShowDetail from '../components/show-detail.jsx';
+import DetailView from '../components/detail-view.jsx';
 
 export default class App extends Component {
   constructor(props) {
@@ -74,9 +74,15 @@ export default class App extends Component {
           onSearchInput={this.onSearchInput}
         />
         <Schedule path='/schedule' />
-        <ShowDetail
+        <DetailView
           path='/show/:id'
           shows={shows.searches[shows.searchTerm]}
+          resource='shows'
+        />
+        <DetailView
+          path='/person/:id'
+          people={people.searches[people.searchTerm]}
+          resource='people'
         />
         <NotFound default />
       </Router>
