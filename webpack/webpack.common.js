@@ -69,6 +69,7 @@ module.exports = env => ({
       'process.env': {
         NODE_ENV: JSON.stringify(env)
       }
-    })
+    }),
+    new webpack.ProgressPlugin()
   ]
 });
