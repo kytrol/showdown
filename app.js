@@ -5,16 +5,15 @@ require('dotenv').config();
 const debug = require('debug')(process.env.DEBUG + ':app');
 const express = require('express');
 const bodyParser = require('body-parser');
-const webpack = require('webpack');
-const config = require('./webpack.config');
 const app = express();
 
 const routes = require('./routes');
-
-const compiler = webpack(config);
 const isProduction = process.env.NODE_ENV === 'production';
 
 if (!isProduction) {
+  const webpack = require('webpack');
+  const config = require('./webpack.config')({ env: 'development' });
+  const compiler = webpack(config);
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: config.output.publicPath
