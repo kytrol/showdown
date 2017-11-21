@@ -8,7 +8,14 @@ import Schedule from './schedule.jsx';
 import NotFound from '../components/not-found.jsx';
 import DetailView from '../components/detail-view.jsx';
 
+/**
+ * App Component.
+ */
 export default class App extends Component {
+  /**
+   * Attaches props to component and initializes state.
+   * @param {Object} props  Props passed to component
+   */
   constructor(props) {
     super(props);
 
@@ -27,10 +34,21 @@ export default class App extends Component {
     this.onSearchInput = this.onSearchInput.bind(this);
   }
 
+  /**
+   * Debounces call to onSearchInput.
+   */
   componentWillMount() {
     this.onSearchInput = debounce(this.onSearchInput, 300);
   }
 
+  /**
+   * Retrieves data for search term from cache, if available,
+   * or API.
+   * @param {String}   searchTerm    Term to search with
+   * @param {String}   resource      Category of data
+   *                                 Ex. 'show' or 'person'
+   * @param {Function} performFetch  Retrieves data from API
+   */
   onSearchInput(searchTerm, resource, performFetch) {
     const { searches } = this.state[resource];
     if (searches[searchTerm]) {
@@ -40,6 +58,13 @@ export default class App extends Component {
     }
   }
 
+  /**
+   * Adds a search result to the state.
+   * @param {String} resource    Category of data
+   *                             Ex. 'show' or 'person'
+   * @param {String} searchTerm  Term to search with
+   * @param {Array}  results     Search results from API
+   */
   addSearch({ resource, searchTerm, results }) {
     this.setState(prevState => ({
       ...prevState,
@@ -53,6 +78,10 @@ export default class App extends Component {
     }));
   }
 
+  /**
+   * Renders component
+   * @return {Component}  App Component
+   */
   render() {
     const { shows, people } = this.state;
 
