@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime'; // Required for async/await
 import { h, Component } from 'preact';
 import debounce from 'debounce';
 import Router from 'preact-router';

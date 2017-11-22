@@ -3,7 +3,6 @@ const { jsEntry } = require('./util');
 
 module.exports = {
   entry: [
-    'babel-polyfill',
     'webpack-hot-middleware/client?quiet=true',
     jsEntry
   ],

@@ -4,10 +4,7 @@ const autoprefixer = require('autoprefixer');
 const { paths, jsEntry } = require('./util');
 
 module.exports = {
-  entry: [
-    'babel-polyfill',
-    jsEntry
-  ],
+  entry: jsEntry,
   module: {
     rules: [{
       test: /\.scss$/,
