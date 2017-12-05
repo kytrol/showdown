@@ -1,0 +1,12 @@
+.credit {
+  & > h2 {
+    margin-top: $m;
+    margin-bottom: $m;
+  }
+
+  & > h3 {
+    color: $amber;
+    margin-top: $s;
+    margin-bottom: $s;
+  }
+}

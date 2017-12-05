@@ -15,5 +15,5 @@ html(lang='en')
           .then(reg => console.log('service worker ready boi'))
           .catch(err => console.error(`nope i need more time to get ready man ${err}`));
       }
-  body!= html
-    script(src='/js/bundle.js')
+    script(src='/js/bundle.js' defer)
+  body

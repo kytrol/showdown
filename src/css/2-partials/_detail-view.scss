@@ -28,19 +28,8 @@
     margin: $s 0;
   }
 
-  & > .img-box {
-    background-color: $accent-dark;
-    border-radius: $xxs;
-    box-shadow: $shadow;
-    height: 29.5rem;
-    width: 21rem;
-    margin-right: auto;
-    margin-left: auto;
-    overflow: hidden;
-
-    & ~ p {
-      margin-top: $xs;
-    }
+  & > .img-box ~ p {
+    margin-top: $xs;
   }
 
   & > .genres {
@@ -76,4 +65,13 @@
   font-size: inherit;
   padding: 0 $m $s $m;
   margin-top: $s;
+}
+
+.img-box {
+  background-color: $accent-dark;
+  border-radius: $xxs;
+  box-shadow: $shadow;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
 }
