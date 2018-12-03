@@ -1,12 +1,31 @@
+.credits {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: $l;
+  margin-right: $l;
+}
+
 .credit {
+  margin-left: $l;
+  margin-right: $l;
+
   & > h2 {
+    color: $amber;
     margin-top: $m;
     margin-bottom: $m;
+    text-overflow: hidden;
   }
 
   & > h3 {
-    color: $amber;
     margin-top: $s;
     margin-bottom: $s;
+  }
+}
+
+@media (min-width: 685px) {
+  .credits {
+    flex-direction: row;
+    justify-content: center;
   }
 }

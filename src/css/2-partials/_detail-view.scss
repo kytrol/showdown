@@ -47,6 +47,14 @@
   }
 }
 
+#back {
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  left: $s;
+  top: $s;
+}
+
 .cover {
   background-color: $accent-dark;
   background-position: top;
@@ -61,17 +69,28 @@
   z-index: -1;
 }
 
-.description > p {
-  font-size: inherit;
-  padding: 0 $m $s $m;
-  margin-top: $s;
+.description {
+  text-align: left;
+  min-width: 44rem;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+
+  & > p {
+    font-size: inherit;
+    padding: 0 $m $s $m;
+    margin-top: $s;
+  }
 }
 
 .img-box {
   background-color: $accent-dark;
-  border-radius: $xxs;
   box-shadow: $shadow;
   margin-right: auto;
   margin-left: auto;
   overflow: hidden;
+
+  & > img {
+    border-radius: $xxs;
+  }
 }

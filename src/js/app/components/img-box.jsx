@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-const ImgBox = ({ image, alt, width, height }) => {
+const ImgBox = ({ image, alt, width, height, onClick }) => {
   const imgExists = image && image.medium;
 
   return (
@@ -14,6 +14,7 @@ const ImgBox = ({ image, alt, width, height }) => {
           width={width}
           height={height}
           alt={alt}
+          onClick={onClick && onClick}
         />
       )}
     </div>

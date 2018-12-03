@@ -18,6 +18,7 @@ export default class DetailView extends Component {
     this.state = {};
 
     this.getResultType = this.getResultType.bind(this);
+    this.handleCreditClick = this.handleCreditClick.bind(this);
   }
 
   /**
@@ -27,6 +28,14 @@ export default class DetailView extends Component {
   getResultType() {
     const { path } = this.props;
     return path.split('/')[1];
+  }
+
+  /**
+   * Modifies state to rerender when a credit is clicked.
+   * @param  {[type]} info  Character or show info
+   */
+  handleCreditClick(info) {
+    this.setState(() => ({ info }));
   }
 
   /**
@@ -61,12 +70,12 @@ export default class DetailView extends Component {
 
     return (
       <section class='detail-view'>
-        <CoverBox info={info} />
+        <CoverBox info={info} detailType={resultType} />
         {(resultType === 'show') && (
           <ShowDetail info={info} />
         )}
         {(resultType === 'person') && (
-          <PersonDetail info={info} />
+          <PersonDetail info={info} onCreditClick={this.handleCreditClick} />
         )}
       </section>
     );

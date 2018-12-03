@@ -46,7 +46,7 @@ export default class PersonSearch extends Component {
             });
           }}
         />
-      {searches[searchTerm] && <PersonList people={searches[searchTerm]} />}
+        {searches[searchTerm] && <PersonList people={searches[searchTerm]} />}
       </section>
     );
   }

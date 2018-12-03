@@ -33,9 +33,16 @@ export default class CastCredits extends Component {
    */
   render() {
     return (
-      <section>
-        <h1>Characters</h1>
-        {this.state.map(credit => <Credit info={credit} />)}
+      <section class='cast-credits'>
+        {this.state.length
+          ? <h1>Characters</h1>
+          : <h3>Does not appear in any shows.</h3>
+        }
+        <div class='credits'>
+          {this.state.map(credit => (
+            <Credit info={credit} onClick={this.props.onCreditClick} />
+          ))}
+        </div>
       </section>
     );
   }

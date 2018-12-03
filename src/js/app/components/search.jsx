@@ -1,4 +1,6 @@
 import { h, Component } from 'preact';
+import { route } from 'preact-router';
+import BackBtn from './back-btn.jsx';
 
 /**
  * Search Component.
@@ -28,8 +30,9 @@ export default class Search extends Component {
 
     return (
       <div class='search'>
+        <BackBtn onClick={() => route('/', true)}/>
         <div class='search-box'>
-          <img src='assets/img/search.svg' alt='search' />
+          <img src='/assets/img/search.svg' alt='search' />
           <input
             type='text'
             placeholder={placeholder}

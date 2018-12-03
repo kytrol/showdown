@@ -1,18 +1,23 @@
 import { h } from 'preact';
+import { route } from 'preact-router';
 import ImgBox from './img-box.jsx';
 
-const Credit = ({ info }) => {
+const Credit = ({ info, onClick }) => {
   const { character, show } = info;
   return (
     <div class='credit'>
-      <h2>{show.name}</h2>
+      <h2>{character.name}</h2>
       <ImgBox
         image={show.image}
         alt={show.name}
         width='210'
         height='295'
+        onClick={() => {
+          route(`/show/${show.id}`);
+          onClick(show);
+        }}
       />
-      <h3>{character.name}</h3>
+      <h3>{show.name}</h3>
     </div>
   );
 };

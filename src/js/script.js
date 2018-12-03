@@ -3,6 +3,7 @@
 import { h, render } from 'preact';
 import '../css/style.scss';
 import '../assets/img/search.svg';
+import '../assets/img/back.svg';
 
 let root;
 

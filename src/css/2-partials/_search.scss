@@ -2,6 +2,10 @@
 .search {
   background-color: $accent-light;
   padding: 1.2rem;
+
+  & > #back {
+    top: 1.1rem;
+  }
 }
 
 .search-box {
