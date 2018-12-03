@@ -13,6 +13,7 @@ const Credit = ({ info, onClick }) => {
         width='210'
         height='295'
         onClick={() => {
+          console.error('finna route on show ', show.id);
           route(`/show/${show.id}`);
           onClick(show);
         }}

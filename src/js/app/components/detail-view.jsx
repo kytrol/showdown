@@ -35,6 +35,7 @@ export default class DetailView extends Component {
    * @param  {[type]} info  Character or show info
    */
   handleCreditClick(info) {
+    console.log('setting detail state', info);
     this.setState(() => ({ info }));
   }
 
@@ -66,13 +67,16 @@ export default class DetailView extends Component {
       return null;
     }
 
+    console.log('detail state', info);
+
     const resultType = this.getResultType();
+    console.log('resultType', resultType);
 
     return (
       <section class='detail-view'>
         <CoverBox info={info} detailType={resultType} />
         {(resultType === 'show') && (
-          <ShowDetail info={info} />
+          <ShowDetail info={info} onMemberClick={this.handleCreditClick} />
         )}
         {(resultType === 'person') && (
           <PersonDetail info={info} onCreditClick={this.handleCreditClick} />

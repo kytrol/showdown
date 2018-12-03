@@ -20,11 +20,16 @@ export default class CastCredits extends Component {
    * Fetches cast credits on component mount.
    */
   async componentDidMount() {
+    console.error('Mounting cast credits');
+    console.log('this.props', this.props);
     const { id } = this.props;
 
     const rawCredits = await getCastCredits(id);
+    console.error('fetching on people ', id);
     const credits = rawCredits.map(c => c._embedded);
+    console.log('oldState', this.state);
     this.setState(_ => credits);
+    console.log('newState', this.state);
   }
 
   /**

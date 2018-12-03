@@ -10,11 +10,17 @@
   margin-left: $l;
   margin-right: $l;
 
+  & > h2,
+  & > h3 {
+    @include ellipsis-overflow();
+
+    width: 29.5rem;
+  }
+
   & > h2 {
     color: $amber;
     margin-top: $m;
     margin-bottom: $m;
-    text-overflow: hidden;
   }
 
   & > h3 {
