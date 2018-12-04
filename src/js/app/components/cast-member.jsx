@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { route } from 'preact-router';
 import ImgBox from './img-box.jsx';
 
-const CastMember = ({ info, onClick }) => {
+const CastMember = ({ info }) => {
   const { character, person } = info;
   return (
     <div class='credit'>
@@ -12,12 +12,7 @@ const CastMember = ({ info, onClick }) => {
         alt={person.name}
         width='210'
         height='295'
-        onClick={() => {
-          console.error('finna route on person.id ', person.id);
-          route(`/person/${person.id}`);
-          console.log('passing person to onClick', person);
-          onClick(person);
-        }}
+        onClick={() => route(`/person/${person.id}`)}
       />
       <h3>{character.name}</h3>
     </div>

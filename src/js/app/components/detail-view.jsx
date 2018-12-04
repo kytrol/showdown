@@ -18,42 +18,62 @@ export default class DetailView extends Component {
     this.state = {};
 
     this.getResultType = this.getResultType.bind(this);
-    this.handleCreditClick = this.handleCreditClick.bind(this);
   }
 
   /**
    * Returns the type of results. ex. 'show' or 'person'
-   * @return {String}  Result type
+   * @param   {String} path  Path to sliced
+   * @return  {String}        Result type
    */
-  getResultType() {
-    const { path } = this.props;
+  getResultType(path = this.props.path) {
     return path.split('/')[1];
   }
 
   /**
-   * Modifies state to rerender when a credit is clicked.
-   * @param  {[type]} info  Character or show info
+   * Fetches details for a single person or show.
+   * @param {Object} props       Props passed to component
+   * @param {String} resultPath  Path from new props
    */
-  handleCreditClick(info) {
-    console.log('setting detail state', info);
-    this.setState(() => ({ info }));
-  }
-
-  /**
-   * Ensures component has data needed to render.
-   */
-  async componentDidMount() {
-    const { resource, id } = this.props;
-    const results = this.props[resource];
+  async fetchDetails(props, resultPath) {
+    const { resource, id } = props;
+    const results = props[resource];
     let info;
     if (results) {
-      const resultType = this.getResultType();
+      const resultType = this.getResultType(resultPath);
       info = results.map(r => r[resultType]).find(r => r.id === Number(id));
+
+      if (!info) {
+        info = await getSingle(resource, id);
+      }
     } else {
       info = await getSingle(resource, id);
     }
 
     this.setState(_ => ({ info }));
+  }
+
+  /**
+   * Ensures component has data needed to render.
+   */
+  componentDidMount() {
+    this.fetchDetails(this.props);
+  }
+
+  /**
+   * Updates component when new props are received.
+   * @param  {Object} newProps  New props
+   */
+  componentWillReceiveProps(newProps) {
+    this.fetchDetails(newProps, newProps.path);
+  }
+
+  /**
+   * Prevents component from rendering stale data.
+   * @param  {Object}  newProps  New props
+   * @return {Boolean} Whether component should update
+   */
+  shouldComponentUpdate(newProps) {
+    return newProps.id === this.props.id;
   }
 
   /**
@@ -67,19 +87,15 @@ export default class DetailView extends Component {
       return null;
     }
 
-    console.log('detail state', info);
-
     const resultType = this.getResultType();
-    console.log('resultType', resultType);
-
     return (
       <section class='detail-view'>
         <CoverBox info={info} detailType={resultType} />
         {(resultType === 'show') && (
-          <ShowDetail info={info} onMemberClick={this.handleCreditClick} />
+          <ShowDetail info={info} />
         )}
         {(resultType === 'person') && (
-          <PersonDetail info={info} onCreditClick={this.handleCreditClick} />
+          <PersonDetail info={info} />
         )}
       </section>
     );

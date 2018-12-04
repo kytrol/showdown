@@ -3,8 +3,8 @@ import LandingSection from './landing-section.jsx';
 
 const sections = [
   'Show Search',
-  'Person Search',
-  'Schedule'
+  'Actor Search',
+  // 'Schedule'
 ];
 
 const Landing = () => (

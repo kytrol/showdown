@@ -47,14 +47,6 @@
   }
 }
 
-#back {
-  position: absolute;
-  height: 4rem;
-  width: 4rem;
-  left: $s;
-  top: $s;
-}
-
 .cover {
   background-color: $accent-dark;
   background-position: top;
@@ -70,11 +62,9 @@
 }
 
 .description {
-  text-align: left;
-  min-width: 44rem;
-  width: 75%;
   margin-left: auto;
   margin-right: auto;
+  width: 90%;
 
   & > p {
     font-size: inherit;
@@ -92,5 +82,20 @@
 
   & > img {
     border-radius: $xxs;
+  }
+}
+
+@media (min-width: 810px) {
+  .description {
+    text-align: left;
+    min-width: 44rem;
+    max-width: 110rem;
+    width: 75%;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 680px) {
+  .detail-view h1 {
+    margin-left: 4rem;
   }
 }

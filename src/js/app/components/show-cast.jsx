@@ -20,12 +20,9 @@ export default class ShowCast extends Component {
    * Fetches show cast on mount.
    */
   async componentDidMount() {
-    console.log('props', this.props);
     const { id } = this.props;
 
     const request = await getShowWithCast(id);
-    console.error('fetching on show ', id);
-    console.log('castRequest', request);
     this.setState(() => request._embedded.cast);
   }
 
@@ -34,13 +31,12 @@ export default class ShowCast extends Component {
    * @return {Component}  ShowCast component
    */
   render() {
-    console.log('castMember', this.state[0]);
     return (
-      <div>
+      <div class='show-cast'>
         <h1>Show Cast</h1>
         <ul class='credits'>
           {this.state.map(castMember => (
-            <CastMember info={castMember} onClick={this.props.onMemberClick}/>
+            <CastMember info={castMember} />
           ))}
         </ul>
       </div>

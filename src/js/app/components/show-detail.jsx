@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import ShowCast from './show-cast.jsx';
 
-const ShowDetail = ({ info, onMemberClick }) => (
+const ShowDetail = ({ info }) => (
   <div>
     {info.summary && (
       <div
@@ -9,7 +9,7 @@ const ShowDetail = ({ info, onMemberClick }) => (
         dangerouslySetInnerHTML={{ __html: info.summary }}
       />
     )}
-    <ShowCast id={info.id} onMemberClick={onMemberClick} />
+    <ShowCast id={info.id} />
   </div>
 );
 

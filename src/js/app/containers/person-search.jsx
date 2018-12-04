@@ -38,7 +38,7 @@ export default class PersonSearch extends Component {
     return (
       <section class='person-search'>
         <Search
-          placeholder='Search for a person...'
+          placeholder='Search for an actor...'
           onSearchInput={evt => {
             const searchTerm = evt.target.value;
             onSearchInput(searchTerm, resource, _ => {

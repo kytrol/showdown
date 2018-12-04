@@ -4,7 +4,6 @@ import Network from './network.jsx';
 
 const Show = ({ showInfo }) => {
   const { show } = showInfo;
-  console.log('showInfo', showInfo);
   return (
     <li class='jar show' onClick={() => route(`show/${show.id}`)}>
       {show.network && <Network network={show.network} />}
