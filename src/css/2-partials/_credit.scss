@@ -1,0 +1,45 @@
+.credits {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: $l;
+  margin-right: $l;
+}
+
+.credit {
+  margin-left: $l;
+  margin-right: $l;
+
+  img {
+    @include no-highlight();
+
+    cursor: pointer;
+  }
+
+  & > h2,
+  & > h3 {
+    @include ellipsis-overflow();
+
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 29.5rem;
+  }
+
+  & > h2 {
+    color: $amber;
+    margin-top: $m;
+    margin-bottom: $m;
+  }
+
+  & > h3 {
+    margin-top: $s;
+    margin-bottom: $s;
+  }
+}
+
+@media (min-width: 685px) {
+  .credits {
+    flex-direction: row;
+  }
+}

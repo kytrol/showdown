@@ -1,0 +1,21 @@
+@import '../0-vendor/normalize';
+@import '../0-vendor/overpass';
+
+@import '../1-modules/_all';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $maroon;
+  color: $grey-200;
+  font-family: 'Overpass', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
+
+main {
+  height: 100vh;
+  overflow: hidden;
+}

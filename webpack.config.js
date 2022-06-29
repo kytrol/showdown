@@ -1,39 +1,17 @@
 'use strict';
 
-const webpack = require('webpack');
-const path = require('path');
+const webpackMerge = require('webpack-merge');
+const commonConfig = require('./webpack/webpack.common');
 
-const srcPath = path.join(__dirname, 'src');
-const buildPath = path.join(__dirname, 'build');
+const buildAddons = addonsArg => {
+  const addons = [].concat(...[addonsArg]).filter(Boolean);
 
-module.exports = {
-  entry: path.join(srcPath, 'script.js'),
-  devServer: {
-    port: 3001,
-    inline: true,
-    hot: true,
-    compress: true
-  },
-  devtool: 'cheap-module-eval-source-map',
-  output: {
-    filename: 'bundle.js',
-    path: buildPath,
-    publicPath: '/build'
-  },
-  module: {
-    rules: [{
-      test: /\.jsx?/,
-      loader: 'babel-loader',
-      options: {
-        presets: ['es2015', 'stage-0'],
-        plugins: [
-          ['transform-react-jsx', { pragma: 'h' }]
-        ]
-      }
-    }]
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
-  ]
+  return addons.map(addon => require(`./webpack/addons/webpack.${addon}`));
+};
+
+module.exports = envOpts => {
+  const { env, addons } = envOpts;
+  const envConfig = require(`./webpack/webpack.${envOpts.env}`);
+
+  return webpackMerge(commonConfig(env), envConfig, ...buildAddons(addons));
 };

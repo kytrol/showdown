@@ -1,0 +1,105 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  height: 93vh;
+
+  & > div {
+    @include no-highlight();
+
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    // flex: 0 1 33.33%;
+    flex: 0 1 50%;
+    padding: 1.6rem;
+    text-align: left;
+    transition: color 150ms $swift, background-color 150ms $swift;
+
+    &:nth-child(3n - 2) {
+      @include click-effect($accent-light);
+
+      background-color: $accent-light;
+    }
+
+    &:nth-child(3n - 1) {
+      @include click-effect($accent);
+
+      background-color: $accent;
+    }
+
+    &:nth-child(3n) {
+      @include click-effect($accent-dark);
+
+      background-color: $accent-dark;
+    }
+
+    &:hover {
+      color: $amber;
+
+      & > h3 {
+        font-size: 6.2vw;
+      }
+    }
+  }
+
+  h3 {
+    @include font-transition();
+
+    font-size: 6vw;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    user-select: none;
+  }
+}
+
+@media (min-width: 420px) {
+  .landing {
+    h3 {
+      font-size: 4vw;
+    }
+
+    & > div:hover > h3 {
+      font-size: 4.2vw;
+    }
+  }
+}
+
+@media (min-width: 710px) {
+  .landing {
+    h3 {
+      font-size: 3vmax;
+    }
+
+    & > div:hover > h3 {
+      font-size: 3.2vmax;
+    }
+  }
+}
+
+@media (min-width: 880px) {
+  .landing {
+    & > div {
+      cursor: pointer;
+    }
+
+    h3 {
+      font-size: 3rem;
+    }
+
+    & > div:hover > h3 {
+      font-size: 3.1rem;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .landing {
+    h3 {
+      font-size: 4rem;
+    }
+
+    & > div:hover > h3 {
+      font-size: 4.2rem;
+    }
+  }
+}

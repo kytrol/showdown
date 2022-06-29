@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../assets/font/overpass-v1-100.eot'); /* IE9 Compat Modes */
+  src: local('Overpass Regular'), local('Overpass-Regular'),
+       url('../assets/font/overpass-v1-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/font/overpass-v1-100.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/font/overpass-v1-100.woff') format('woff'), /* Modern Browsers */
+       url('../assets/font/overpass-v1-100.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/font/overpass-v1-100.svg#Overpass') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/font/overpass-v1-regular.eot'); /* IE9 Compat Modes */
+  src: local('Overpass Regular'), local('Overpass-Regular'),
+       url('../assets/font/overpass-v1-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/font/overpass-v1-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/font/overpass-v1-regular.woff') format('woff'), /* Modern Browsers */
+       url('../assets/font/overpass-v1-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/font/overpass-v1-regular.svg#Overpass') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/font/overpass-v1-600.eot'); /* IE9 Compat Modes */
+  src: local('Overpass Regular'), local('Overpass-Regular'),
+       url('../assets/font/overpass-v1-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/font/overpass-v1-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/font/overpass-v1-600.woff') format('woff'), /* Modern Browsers */
+       url('../assets/font/overpass-v1-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/font/overpass-v1-600.svg#Overpass') format('svg'); /* Legacy iOS */
+}

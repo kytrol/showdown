@@ -1,7 +1,7 @@
 'use strict';
 
 const CACHE_NAME = 'showdown-v0';
-const urlsToCache = ['/', '/index.html', '/build/bundle.js'];
+const urlsToCache = ['/'];
 
 self.addEventListener('install', evt => {
   evt.waitUntil(
@@ -28,14 +28,14 @@ self.addEventListener('fetch', evt => {
   } else {
     evt.respondWith(
       caches.match(evt.request)
-      .then(res => {
-        if (res) {
-          return res;
-        }
+        .then(res => {
+          if (res) {
+            return res;
+          }
 
-        return fetch(evt.request);
-      })
-      .catch(err => console.error(err))
+          return fetch(evt.request);
+        })
+        .catch(err => console.error(err))
     );
   }
 });

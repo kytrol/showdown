@@ -1,0 +1,58 @@
+// Header Styles
+header > h1 {
+  @include font-transition();
+
+  color: $amber;
+  font-size: 10vw;
+  font-weight: $light;
+  height: 7vh;
+  letter-spacing: .8rem;
+  line-height: 7vh;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+@media (min-width: 420px) {
+  header > h1 {
+    font-size: 5vw;
+  }
+}
+
+@media (min-width: 710px) {
+  header > h1 {
+    font-size: 4vmax;
+  }
+}
+
+#back {
+  @include no-highlight();
+
+  background-color: $accent-light;
+  border-radius: $xxs;
+  cursor: pointer;
+  // height: 4.8rem;
+  // width: 4.8rem;
+  height: 4rem;
+  width: 4rem;
+  position: fixed;
+  bottom: $m;
+  right: $m;
+  z-index: 1;
+}
+
+@media (min-width: 410px) {
+  #back {
+    background-color: transparent;
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+    top: $s;
+    right: 0;
+    bottom: 0;
+    left: $s;
+  }
+}

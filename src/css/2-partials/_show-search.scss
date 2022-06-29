@@ -1,0 +1,60 @@
+// Show Search Page Styles
+.show-list {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.show {
+  & > h3 {
+    margin-top: 2.6rem;
+  }
+
+  & > .network {
+    display: flex;
+    justify-content: space-between;
+    height: 1.8rem;
+    margin-top: .4rem;
+    margin-bottom: .4rem;
+
+    & > h5 {
+      @include ellipsis-overflow();
+
+      display: inline-block;
+      margin: 0;
+    }
+
+    & + h3 {
+      margin-top: .4rem;
+    }
+  }
+
+  & > .genres {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    height: 2.8rem;
+    padding-top: 1.2rem;
+
+    & > li {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (min-width: 410px) {
+  .search-box {
+    width: 70vw;
+  }
+}
+
+@media (min-width: 590px) {
+  .search-box {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 880px) {
+  .search-box {
+    width: 40vw;
+  }
+}
